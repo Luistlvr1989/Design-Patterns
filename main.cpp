@@ -1,14 +1,15 @@
 #include <iostream>
-#include "singleton/singleton.h"
+#include "builder/builder.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-    Singleton& singleton1 = Singleton::instance(); 
-    Singleton& singleton2 = Singleton::instance();
+    Pizza onionAndCheese = Pizza::Builder()
+		.setCheese(true)
+        .setOnions(true)
+		.build();
 
-    cout << &singleton1 << std::endl;
-	cout << &singleton2 << std::endl;
+	onionAndCheese.print();
     
    	return EXIT_SUCCESS;
 }

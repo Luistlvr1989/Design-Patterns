@@ -8,7 +8,7 @@
             "args": [
                 "-std=c++14",
                 "-g",
-                "main.cpp", "singleton/singleton.cpp",
+                "main.cpp", "builder/builder.cpp",
                 "-o",
                 "stl.out"
             ],
