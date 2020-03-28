@@ -14,7 +14,16 @@
         "sstream": "cpp",
         "type_traits": "cpp",
         "utility": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "__bit_reference": "cpp",
+        "__hash_table": "cpp",
+        "__split_buffer": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "filesystem": "cpp",
+        "iterator": "cpp",
+        "string": "cpp",
+        "string_view": "cpp"
     },
     "files.exclude": {
         "**/.classpath": true,
