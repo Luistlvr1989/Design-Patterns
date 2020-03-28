@@ -1,15 +1,12 @@
 #include <iostream>
-#include "builder/builder.h"
+#include "factory/client.h"
 
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-    Pizza onionAndCheese = Pizza::Builder()
-		.setCheese(true)
-        .setOnions(true)
-		.build();
-
-	onionAndCheese.print();
+    Client* client = new Client(TWO_WHEELER); 
+    Vehicle * vehicle = client->getVehicle(); 
+    vehicle->printVehicle(); 
     
    	return EXIT_SUCCESS;
 }

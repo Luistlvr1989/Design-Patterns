@@ -8,7 +8,7 @@
             "args": [
                 "-std=c++14",
                 "-g",
-                "main.cpp", "builder/builder.cpp",
+                "main.cpp", "factory/vehicle.cpp", "factory/client.cpp",
                 "-o",
                 "stl.out"
             ],
