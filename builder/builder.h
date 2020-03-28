@@ -1,5 +1,5 @@
-#ifndef SINGLETON_H
-#define SINGLETON_H
+#ifndef BUILDER_H
+#define BUILDER_H
 
 #include <iostream>
 
