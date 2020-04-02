@@ -8,7 +8,7 @@
             "args": [
                 "-std=c++14",
                 "-g",
-                "main.cpp", "prototype/trooper.cpp", "prototype/factory.cpp", 
+                "main.cpp", "facade/systems.cpp", "facade/facade.cpp", 
                 "-o",
                 "stl.out"
             ],

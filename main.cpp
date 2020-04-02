@@ -1,43 +1,23 @@
 #include <iostream>
 #include <vector>
-#include "prototype/factory.h"
+#include "facade/facade.h"
 
 using namespace std;
 
-void greet(vector<Trooper*>);
-void dismiss(vector<Trooper*>);
+void client(Facade *facade) {
+    cout << facade->processTaxiRequest();
+}
 
 int main(int argc, char const *argv[]) {
-    vector<Trooper*> soldiers;
-    int choice;
-    
-    while (true) {
-        cout << "Cody(0) Fox(1) Go(3): ";
-        cin >> choice;
+    TaxiGateway* gateway = new TaxiGateway;
+    TaxiDispatcher* dispatcher = new TaxiDispatcher;
+    Facade* facade = new Facade(gateway, dispatcher);
 
-        if (choice == 3) {
-            break;
-        }
+    cout << facade->start();
+    client(facade);
 
-        soldiers.push_back(Factory::makeTrooper(choice));
-    }
-
-    greet(soldiers);
-    dismiss(soldiers);
+    delete facade;
     
     return EXIT_SUCCESS;
 }
 
-void greet(vector<Trooper*> soldiers) {
-    for (auto it = soldiers.begin(); it != soldiers.end(); ++it) {
-        (*it)->greet();
-    }
-}
-
-void dismiss(vector<Trooper*> soldiers) {
-    for (int i = 0; i < soldiers.size(); ++i) {
-        delete soldiers[i];
-    }
-
-    soldiers.clear();
-}
