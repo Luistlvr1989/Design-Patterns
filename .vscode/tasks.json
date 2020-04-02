@@ -8,7 +8,7 @@
             "args": [
                 "-std=c++14",
                 "-g",
-                "main.cpp", "facade/systems.cpp", "facade/facade.cpp", 
+                "main.cpp", "decorator/datasource.cpp", "decorator/decorator.cpp", 
                 "-o",
                 "stl.out"
             ],

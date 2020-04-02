@@ -1,22 +1,27 @@
 #include <iostream>
-#include <vector>
-#include "facade/facade.h"
+#include "decorator/decorator.h"
 
 using namespace std;
 
-void client(Facade *facade) {
-    cout << facade->processTaxiRequest();
-}
+#define FILE "input"
 
 int main(int argc, char const *argv[]) {
-    TaxiGateway* gateway = new TaxiGateway;
-    TaxiDispatcher* dispatcher = new TaxiDispatcher;
-    Facade* facade = new Facade(gateway, dispatcher);
+    string text = "Hello Decorator!";
 
-    cout << facade->start();
-    client(facade);
+    DataSource* encoded = new FileDataSource(FILE);
+    encoded = new EncryptionDecorator(encoded);
+    encoded = new CompressionDecorator(encoded);
 
-    delete facade;
+    encoded->writeData(text);
+
+    DataSource* plain = new FileDataSource(FILE);
+
+    cout << "* Input:" << endl;
+    cout << text << endl;
+    cout << "* Encoded:" << endl;
+    cout << plain->readData() << endl;
+    cout << "* Decoded:" << endl;
+    cout << encoded->readData() << endl;
     
     return EXIT_SUCCESS;
 }
