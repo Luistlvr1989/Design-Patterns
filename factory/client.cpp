@@ -1,28 +1,43 @@
 #include "client.h"
 
-Client::Client(Vehicles type)  { 
-    switch (type) {
-        case TWO_WHEELER:
-            vehicle = new TwoWheeler(); 
+Client::Client(OS os)  { 
+    switch (os) {
+        case LINUX:
+            factory = new LinuxFactory(); 
             break;
         
-        case FOUR_WHEELER:
-            vehicle = new FourWheeler(); 
+        case WINDOWS:
+            factory = new WindowsFactory(); 
             break;
         
         default: 
-            throw "Type not supported";
+            throw "SO not supported";
             break;
     }
 } 
   
 Client::~Client()   { 
-    if (vehicle) { 
-        delete vehicle; 
-        vehicle = nullptr; 
+    if (factory) { 
+        delete factory; 
+        factory = nullptr; 
     } 
 } 
 
-Vehicle* Client::getVehicle() { 
-    return vehicle; 
-} 
+void Client::draw() {
+    Widget* widget = factory->createButton();
+    widget->draw();
+
+    displayWindow();
+}
+
+void Client::displayWindow() {
+    Widget* widgets[] = {
+        factory->createMenu(),
+        factory->createButton(),
+        factory->createButton()
+    };
+
+    widgets[0]->draw();
+    widgets[1]->draw();
+    widgets[2]->draw();
+}

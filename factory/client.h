@@ -1,15 +1,17 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 
-#include "vehicle.h"
+#include "factory.h"
 
 class Client { 
-    Vehicle *vehicle; 
+    Factory *factory; 
+
 public:
-    Client(Vehicles);
+    Client(OS);
     ~Client();
 
-    Vehicle* getVehicle();
+    void draw();
+    void displayWindow();
 };
 
 #endif

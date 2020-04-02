@@ -4,9 +4,8 @@
 using namespace std;
 
 int main(int argc, char const *argv[]) {
-    Client* client = new Client(TWO_WHEELER); 
-    Vehicle * vehicle = client->getVehicle(); 
-    vehicle->printVehicle(); 
+    Client* client = new Client(LINUX); 
+    client->draw(); 
     
    	return EXIT_SUCCESS;
 }
